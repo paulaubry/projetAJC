@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	
+	<!-- mettre les packages et les actions -->
+	<package name="default" namespace="/" extends="struts-default">
+	<default-action-ref name="index"/>
+	<action name="index" class = "action.GlobalAction" method = "hello">
+		<result>Index.jsp</result>
+	</action>
+	</package>
+	
+	<package name="global" namespace="/global" extends="struts-default">
+		<default-action-ref name="index"></default-action-ref>
+		<!-- appel d'une autre méthode dans la classe action -->
+		
+		<action name="index" class="action.GlobalAction" method="index">
+			<result>global.jsp</result>
+		</action>
+		
+		<action name = "deleteCountry" class = "action.GlobalAction" method = "deleteCountry">
+			<result>global.jsp</result>
+		</action>
+		
+		<action name = "saveCountry" class = "action.GlobalAction" method = "saveCountry">
+			<result name = "success">global.jsp</result>
+			<result name = "input">global.jsp</result>
+		</action>
+		
+		<action name = "editCountry" class = "action.GlobalAction" method = "editCountry">
+			<result>global.jsp</result>
+		</action>
+		
+		<action name = "deleteCity" class = "action.GlobalAction" method = "deleteCity">
+			<result>global.jsp</result>
+		</action>
+		
+		<action name = "saveCity" class = "action.GlobalAction" method = "saveCity">
+			<result>global.jsp</result>
+		</action>
+		
+		<action name = "editCity" class = "action.GlobalAction" method = "editCity">
+			<result>global.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

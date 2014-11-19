@@ -1,0 +1,12 @@
+package action;
+
+public class IndexAction extends ActionSupport{
+
+	public String hello()
+	{
+		listCity = serviceCity.selectAll();
+		listCountry = serviceCountry.selectAll();
+		return SUCCESS;
+	}
+	
+}

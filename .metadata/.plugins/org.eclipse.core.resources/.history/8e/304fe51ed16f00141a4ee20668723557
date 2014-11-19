@@ -1,0 +1,10 @@
+package action;
+
+public class IndexAction extends ActionSupport{
+
+	public String hello()
+	{
+		return SUCCESS;
+	}
+	
+}
